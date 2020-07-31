@@ -4,9 +4,9 @@ ee_to_race_fmt:
   - path: data/EntranceExams
     md5: 7f2a4f22383404bae7b8281426c11849.dir
   - path: src/etl/ee_processor.py
-    md5: 96187f6a695761a1ca04cf403529c2a2
+    md5: c010809e7fa41b01f7064a5780e169c3
   - path: src/etl/ee_to_json.sh
-    md5: 0805ad3db17e0ae9ab6ea08c75f93ccd
+    md5: 74cb432c52eef84cb6a992dfbb0aa8eb
   outs:
   - path: data/EntranceExams_race_fmt
     md5: 2f24e6c60c36a0ce37c3abb089c8f82e.dir

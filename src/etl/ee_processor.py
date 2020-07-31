@@ -1,6 +1,8 @@
 import json
 import argparse
 
+from example import Example
+
 """
 process Entrance Exams dataset to RACE-like format
 sample:
@@ -63,7 +65,6 @@ sample:
 """
 
 flags = None
-answer_indices_to_letters = ['A', 'B', 'C', 'D']
 
 
 def parse_args():
@@ -74,42 +75,15 @@ def parse_args():
     return parser.parse_args()
 
 
-class Example(object):
-    def __init__(self, id, ee_example):
-        self.id = id
-        self.article = ee_example['doc']['$t']
-
-        self.questions = self._process_questions(ee_example['question'])
-        self.answers = self._process_answers(ee_example['question'])
-        self.options = self._process_options(ee_example['question'])
-
-    def _process_questions(self, questions):
-        return [q['q_str'] for q in questions]
-
-    def _process_answers(self, questions):
-        # get the index of the answer with correct=True
-        answers = []
-        for question in questions:
-            for index, answer in enumerate(question['answer']):
-                if answer.get('correct', False):
-                    answers.append(answer_indices_to_letters[index])
-        return answers
-
-    def _process_options(self, questions):
-        options = []
-        for question in questions:
-            options.append([q['$t'] for q in question['answer']])
-        return options
-
-    def to_json(self):
-        return self.__dict__
-
-
 def main():
     data = json.load(open(flags.input))
     data = data['test-set']['topic']['reading-test']
     examples = [
-        Example(datapoint['r_id'], datapoint).to_json()
+        Example(
+            datapoint['r_id'],
+            datapoint['doc']['$t'],
+            datapoint['question']
+        ).to_json()
         for datapoint in data
     ]
     dataset = dict(version=1.0, data=examples)
