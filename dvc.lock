@@ -1,0 +1,24 @@
+ee_to_race_fmt:
+  cmd: ./src/etl/ee_to_json.sh data/EntranceExams data/EntranceExams_race_fmt
+  deps:
+  - path: data/EntranceExams
+    md5: 7f2a4f22383404bae7b8281426c11849.dir
+  - path: src/etl/ee_processor.py
+    md5: 96187f6a695761a1ca04cf403529c2a2
+  - path: src/etl/ee_to_json.sh
+    md5: 0805ad3db17e0ae9ab6ea08c75f93ccd
+  outs:
+  - path: data/EntranceExams_race_fmt
+    md5: 2f24e6c60c36a0ce37c3abb089c8f82e.dir
+cuid_to_race_fmt:
+  cmd: ./src/etl/cuid_to_json.sh data/CUID data/CUID_race_fmt
+  deps:
+  - path: data/CUID
+    md5: 415422d8ebc0eb80848f5633e4588c6d.dir
+  - path: src/etl/cuid_processor.py
+    md5: 2630b2eb4826ec35dc6ed28472e10581
+  - path: src/etl/cuid_to_json.sh
+    md5: 8ff22599210678433ba00905fd41d778
+  outs:
+  - path: data/CUID_race_fmt
+    md5: e189701ed1cf686c11eb86df76bb5ee3.dir

@@ -1,0 +1,17 @@
+stages:
+  ee_to_race_fmt:
+    cmd: ./src/etl/ee_to_json.sh data/EntranceExams data/EntranceExams_race_fmt
+    deps:
+    - data/EntranceExams
+    - src/etl/ee_processor.py
+    - src/etl/ee_to_json.sh
+    outs:
+    - data/EntranceExams_race_fmt
+  cuid_to_race_fmt:
+    cmd: ./src/etl/cuid_to_json.sh data/CUID data/CUID_race_fmt
+    deps:
+    - data/CUID
+    - src/etl/cuid_processor.py
+    - src/etl/cuid_to_json.sh
+    outs:
+    - data/CUID_race_fmt
