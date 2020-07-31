@@ -7,6 +7,8 @@ ee_to_race_fmt:
     md5: c010809e7fa41b01f7064a5780e169c3
   - path: src/etl/ee_to_json.sh
     md5: 74cb432c52eef84cb6a992dfbb0aa8eb
+  - path: src/etl/example.py
+    md5: e31120e3ad79569d489b72a1a0063d9d
   outs:
   - path: data/EntranceExams_race_fmt
     md5: 2f24e6c60c36a0ce37c3abb089c8f82e.dir
@@ -22,3 +24,17 @@ cuid_to_race_fmt:
   outs:
   - path: data/CUID_race_fmt
     md5: e189701ed1cf686c11eb86df76bb5ee3.dir
+qa4mre_to_race_fmt:
+  cmd: ./src/etl/qa4mre_to_json.sh data/QA4MRE data/QA4MRE_race_fmt
+  deps:
+  - path: data/QA4MRE
+    md5: 7caf9f15061d4ced5346f58f75a00f52.dir
+  - path: src/etl/example.py
+    md5: e31120e3ad79569d489b72a1a0063d9d
+  - path: src/etl/qa4mre_processor.py
+    md5: fe924bcebfb61fc0453b712a08df873e
+  - path: src/etl/qa4mre_to_json.sh
+    md5: 808121b8d8b0abd37d3e33492f29e1c4
+  outs:
+  - path: data/QA4MRE_race_fmt
+    md5: 4e513960f1847a18b11a0e621e402824.dir

@@ -5,6 +5,7 @@ stages:
     - data/EntranceExams
     - src/etl/ee_processor.py
     - src/etl/ee_to_json.sh
+    - src/etl/example.py
     outs:
     - data/EntranceExams_race_fmt
   cuid_to_race_fmt:
@@ -15,3 +16,12 @@ stages:
     - src/etl/cuid_to_json.sh
     outs:
     - data/CUID_race_fmt
+  qa4mre_to_race_fmt:
+    cmd: ./src/etl/qa4mre_to_json.sh data/QA4MRE data/QA4MRE_race_fmt
+    deps:
+    - data/QA4MRE
+    - src/etl/example.py
+    - src/etl/qa4mre_processor.py
+    - src/etl/qa4mre_to_json.sh
+    outs:
+    - data/QA4MRE_race_fmt

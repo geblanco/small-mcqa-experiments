@@ -1,6 +1,7 @@
 import json
 import argparse
 
+from pathlib import Path
 from example import Example
 
 """
@@ -37,7 +38,13 @@ def main():
         for datapoint in data
     ]
     dataset = dict(version=1.0, data=examples)
-    print(json.dumps(obj=dataset, ensure_ascii=False))
+    data_str = json.dumps(obj=dataset, ensure_ascii=False) + '\n'
+    if flags.output is None:
+        print(data_str)
+    else:
+        Path(flags.output).parent.mkdir(parents=True, exist_ok=True)
+        with open(flags.output, 'w') as fout:
+            fout.write(data_str)
 
 
 if __name__ == '__main__':
