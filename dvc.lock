@@ -38,3 +38,14 @@ qa4mre_to_race_fmt:
   outs:
   - path: data/QA4MRE_race_fmt
     md5: 4e513960f1847a18b11a0e621e402824.dir
+qa4mre_split_by_lang:
+  cmd: python3 src/etl/qa4mre_splitter.py -i ./data/QA4MRE_race_fmt -o data/QA4MRE_lang_splits
+    -s
+  deps:
+  - path: data/QA4MRE_race_fmt
+    md5: 4e513960f1847a18b11a0e621e402824.dir
+  - path: src/etl/qa4mre_splitter.py
+    md5: 43fa496399939a01062a2ea87d0561f9
+  outs:
+  - path: data/QA4MRE_lang_splits
+    md5: f57546cc06239c7886323713c91672cb.dir

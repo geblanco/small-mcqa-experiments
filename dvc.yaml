@@ -25,3 +25,11 @@ stages:
     - src/etl/qa4mre_to_json.sh
     outs:
     - data/QA4MRE_race_fmt
+  qa4mre_split_by_lang:
+    cmd: python3 src/etl/qa4mre_splitter.py -i ./data/QA4MRE_race_fmt -o data/QA4MRE_lang_splits
+      -s
+    deps:
+    - data/QA4MRE_race_fmt
+    - src/etl/qa4mre_splitter.py
+    outs:
+    - data/QA4MRE_lang_splits
