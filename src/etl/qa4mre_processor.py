@@ -29,14 +29,17 @@ def main():
     data = [
         datapoint for test in data for datapoint in test['reading-test']
     ]
-    examples = [
-        Example(
+    examples = []
+    for datapoint in data:
+        raw_example = Example(
             datapoint['r_id'],
             datapoint['doc']['$t'],
             datapoint['q']
-        ).to_json()
-        for datapoint in data
-    ]
+        )
+        # keep only 4 possible answers, following RACE format
+        raw_example.drop_options(keep=4)
+        examples.append(raw_example.to_json())
+
     dataset = dict(version=1.0, data=examples)
     data_str = json.dumps(obj=dataset, ensure_ascii=False) + '\n'
     if flags.output is None:

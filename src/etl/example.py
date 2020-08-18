@@ -1,3 +1,6 @@
+import random
+
+
 answer_indices_to_letters = ['A', 'B', 'C', 'D', 'E']
 
 
@@ -27,6 +30,27 @@ class Example(object):
         for question in questions:
             options.append([q['$t'] for q in question['answer']])
         return options
+
+    def drop_options(self, keep=None):
+        if keep is None or keep > len(self.options[0]):
+            raise ValueError(
+                'Asked to keep more options than available! '
+                f'(asked {keep}/{len(self.options[0])})'
+            )
+        for i in range(len(self.options)):
+            if keep == len(self.options):
+                continue
+            ans, options = self.answers[i], self.options[i]
+            while len(options) > keep:
+                correct_index = ord(ans) - ord('A')
+                chosen = correct_index
+                while chosen == correct_index:
+                    chosen = random.choice(range(len(options)))
+                del options[chosen]
+                if chosen < correct_index:
+                    correct_index -= 1
+                ans = chr(ord('A') + correct_index)
+            self.answers[i], self.options[i] = ans, options
 
     def to_json(self):
         return self.__dict__
