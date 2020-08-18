@@ -75,7 +75,7 @@ def main():
 
     dataset = Dataset(data_path=flags.input, task='generic')
     lang_file_globs = [f'{flags.input}/*{lang}*.json' for lang in languages]
-    
+
     for lang, lang_glob in zip(languages, lang_file_globs):
         lang_dir = os.path.join(flags.output, lang)
         lang_examples = process_lang_dataset(dataset, lang_glob, lang_dir)
