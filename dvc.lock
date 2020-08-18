@@ -8,7 +8,7 @@ ee_to_race_fmt:
   - path: src/etl/ee_to_json.sh
     md5: 74cb432c52eef84cb6a992dfbb0aa8eb
   - path: src/etl/example.py
-    md5: e31120e3ad79569d489b72a1a0063d9d
+    md5: 83a91e360dbc1ce36372d2f3646f7364
   outs:
   - path: data/EntranceExams_race_fmt
     md5: 2f24e6c60c36a0ce37c3abb089c8f82e.dir
@@ -30,22 +30,22 @@ qa4mre_to_race_fmt:
   - path: data/QA4MRE
     md5: 7caf9f15061d4ced5346f58f75a00f52.dir
   - path: src/etl/example.py
-    md5: e31120e3ad79569d489b72a1a0063d9d
+    md5: 83a91e360dbc1ce36372d2f3646f7364
   - path: src/etl/qa4mre_processor.py
-    md5: fe924bcebfb61fc0453b712a08df873e
+    md5: d8f77290a320f91d56d3451d5c06f573
   - path: src/etl/qa4mre_to_json.sh
     md5: 808121b8d8b0abd37d3e33492f29e1c4
   outs:
   - path: data/QA4MRE_race_fmt
-    md5: 4e513960f1847a18b11a0e621e402824.dir
+    md5: f589f5e678298b04a1a4bd2868def1f7.dir
 qa4mre_split_by_lang:
   cmd: python3 src/etl/qa4mre_splitter.py -i ./data/QA4MRE_race_fmt -o data/QA4MRE_lang_splits
     -s
   deps:
   - path: data/QA4MRE_race_fmt
-    md5: 4e513960f1847a18b11a0e621e402824.dir
+    md5: f589f5e678298b04a1a4bd2868def1f7.dir
   - path: src/etl/qa4mre_splitter.py
-    md5: 43fa496399939a01062a2ea87d0561f9
+    md5: 7cc44f8ebf18582eed1f0cd455d4e3ee
   outs:
   - path: data/QA4MRE_lang_splits
-    md5: f57546cc06239c7886323713c91672cb.dir
+    md5: a882c85fb7e66b68acee91766945107b.dir
