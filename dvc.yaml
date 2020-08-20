@@ -33,3 +33,11 @@ stages:
     - src/etl/qa4mre_splitter.py
     outs:
     - data/QA4MRE_lang_splits
+  dl_models:
+    cmd: python ./src/etl/dl_models.py -m bert-large-uncased bert-base-uncased bert-base-multilingual-cased
+    deps:
+    - src/etl/dl_models.py
+    outs:
+    - data/models/bert-base-multilingual-cased
+    - data/models/bert-base-uncased
+    - data/models/bert-large-uncased

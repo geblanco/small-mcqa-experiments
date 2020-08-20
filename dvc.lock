@@ -49,3 +49,15 @@ qa4mre_split_by_lang:
   outs:
   - path: data/QA4MRE_lang_splits
     md5: fa3b2870c3910118be23a73afb2fd462.dir
+dl_models:
+  cmd: python ./src/etl/dl_models.py -m bert-large-uncased bert-base-uncased bert-base-multilingual-cased
+  deps:
+  - path: src/etl/dl_models.py
+    md5: 0d5ef3d8ac37319c3a0cc2cb01e46008
+  outs:
+  - path: data/models/bert-base-multilingual-cased
+    md5: 9af6f56e6c3cbf422dcba7baf61cc951.dir
+  - path: data/models/bert-base-uncased
+    md5: 43551eda9bd332172e361ed9d721bae0.dir
+  - path: data/models/bert-large-uncased
+    md5: 42defcbbc576c9680569d5da5a8f2679.dir
