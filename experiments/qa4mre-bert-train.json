@@ -47,6 +47,8 @@
     "per_device_train_batch_size": 2,
     "gradient_accumulation_steps": 8,
     "learning_rate": 5.0e-05,
-    "warmup_steps": 500
+    "warmup_steps": 500,
+    "stride": 128,
+    "no_answer_text": "none of the above"
   }
 }

@@ -20,7 +20,10 @@ run_experiment(){
   else
     inside_docker="nvidia-docker run --rm ${docker_args[@]}"
   fi
-  ${inside_docker} ${script_file} $(python3 $json_as_args -f $file)
+  json_args_file="/tmp/$(basename ${file})_args.json"
+  echo "Saving args to $json_args_file"
+  python3 $json_as_args -f $file > $json_args_file
+  ${inside_docker} ${script_file} $json_args_file
 }
 
 get_experiments(){
@@ -53,7 +56,7 @@ ch_to_project_root(){
 ch_to_project_root
 docker_img="race-experiments-v2"
 docker_args="--shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -v `pwd`:/workspace -v /data:/data $docker_img"
-json_as_args="./src/processing/json_to_program_args.py -e params -x meta model_type"
+json_as_args="./src/processing/json_to_program_args.py -e params -x meta model_type -j"
 
 echo "###### Starting experiments $(date)"
 total_start_time=$(date -u +%s)
