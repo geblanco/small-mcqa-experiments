@@ -48,6 +48,7 @@
     "gradient_accumulation_steps": 8,
     "learning_rate": 5.0e-05,
     "warmup_steps": 500,
+    "enable_windowing": true,
     "stride": 128,
     "no_answer_text": "none of the above"
   }
