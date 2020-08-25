@@ -1,0 +1,42 @@
+{
+  "inputs": [
+    "${DATA_DIR}/QA4MRE_lang_splits/en",
+    "${MODELS_DIR}/$find_experiment(qa4mre-bert-train.json)"
+  ],
+  "scripts": [
+    "${CODE_DIR}/processing/run.sh"
+  ],
+  "metrics": [
+    "test_metrics.json"
+  ],
+  "results": [
+    "test_predictions.json",
+    "test_nbest_predictions.json"
+  ],
+  "command": [
+    "./src/processing/run.sh",
+    "${SPECS_DIR}/${EXPERIMENT_DIR}_experiment.json"
+  ],
+  "params": {
+    "meta": "bert-qa4mre-en-test",
+    "data_dir": "${DATA_DIR}/QA4MRE_lang_splits/en",
+    "cache_dir": "/tmp",
+    "model_name_or_path": "${MODELS_DIR}/${EXPERIMENT_DIR}",
+    "output_dir": "${MODELS_DIR}/${EXPERIMENT_DIR}",
+    "metrics_dir": "${METRICS_DIR}/${EXPERIMENT_DIR}",
+    "results_dir": "${RESULTS_DIR}/${EXPERIMENT_DIR}",
+    "model_type": "bert",
+    "task_name": "generic",
+    "do_predict": true,
+    "fp16": true,
+    "fp16_opt_level": "O1",
+    "save_total_limit": 0,
+    "save_steps": 0,
+    "max_seq_length": 484,
+    "num_train_epochs": 2,
+    "per_device_eval_batch_size": 8,
+    "enable_windowing": true,
+    "stride": 128,
+    "no_answer_text": "none of the above"
+  }
+}
