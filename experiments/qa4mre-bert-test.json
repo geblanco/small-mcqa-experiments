@@ -21,7 +21,7 @@
     "meta": "bert-qa4mre-en-test",
     "data_dir": "${DATA_DIR}/QA4MRE_lang_splits/en",
     "cache_dir": "/tmp",
-    "model_name_or_path": "${MODELS_DIR}/${EXPERIMENT_DIR}",
+    "model_name_or_path": "${MODELS_DIR}/$find_experiment(qa4mre-bert-train.json)",
     "output_dir": "${MODELS_DIR}/${EXPERIMENT_DIR}",
     "metrics_dir": "${METRICS_DIR}/${EXPERIMENT_DIR}",
     "results_dir": "${RESULTS_DIR}/${EXPERIMENT_DIR}",
