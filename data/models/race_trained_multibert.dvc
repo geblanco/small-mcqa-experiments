@@ -1,0 +1,10 @@
+md5: 1c33e5d8654f086f6e546f777ce237b2
+frozen: true
+deps:
+- path: data/models/12942b9ce5eb231bd51d867a17ff9b243de813ae44de6056b5066ac67a7131b2
+  repo:
+    url: ../race-experiments-v2/
+    rev_lock: 8009e838e4ab6e432808b9c73d542cf8af8d0ced
+outs:
+- md5: 066da5403ca98aeffca91910e9389c7e.dir
+  path: race_trained_multibert

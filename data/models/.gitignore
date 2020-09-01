@@ -1,3 +1,5 @@
 /bert-large-uncased
 /bert-base-uncased
 /bert-base-multilingual-cased
+/race_trained_bert
+/race_trained_multibert

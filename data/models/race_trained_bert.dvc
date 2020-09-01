@@ -1,0 +1,10 @@
+md5: c1be1b920bf44d4805e9b7fae26b6b31
+frozen: true
+deps:
+- path: data/models/eee4b9c4ecad29f96b656c5c85af637ab919d0ac561a95d0914203925d8f4561
+  repo:
+    url: ../race-experiments-v2/
+    rev_lock: 8009e838e4ab6e432808b9c73d542cf8af8d0ced
+outs:
+- md5: eb32222503d923183dad0bbedf0cceb8.dir
+  path: race_trained_bert
