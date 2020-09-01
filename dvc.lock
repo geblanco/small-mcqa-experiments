@@ -130,3 +130,14 @@ bert_generic_bert-qa4mre-en-test_do_predict_max_seq_length_484_fp16_fp16_opt_lev
     md5: 2860be0182700b0d0f0ede82384e6172
   - path: data/results/bert/generic/bert-qa4mre-en-test/do_predict_max_seq_length_484_fp16_fp16_opt_level_O1_num_train_epochs_2_stride_128/test_predictions.json
     md5: ed8771d180b9561db3b39a9efabb3c53
+ee_split_by_lang:
+  cmd: python3 src/etl/ee_splitter.py -i ./data/EntranceExams_race_fmt -o data/EntranceExams_lang_splits
+    -s
+  deps:
+  - path: data/EntranceExams_race_fmt
+    md5: 2f24e6c60c36a0ce37c3abb089c8f82e.dir
+  - path: src/etl/ee_splitter.py
+    md5: cb4d18fb92bc282e5024fb3b83906c6f
+  outs:
+  - path: data/EntranceExams_lang_splits
+    md5: 9440c753416af32f828c396d9a6f2ce7.dir
