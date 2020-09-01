@@ -133,3 +133,11 @@ stages:
     - data/results/bert/generic/bert-ee-en-train/do_train_do_eval_learning_rate_5e_05_max_seq_length_484_fp16_fp16_opt_level_O1_gradient_accumulation_steps_8_num_train_epochs_2_stride_384/eval_predictions.json
     metrics:
     - data/metrics/bert/generic/bert-ee-en-train/do_train_do_eval_learning_rate_5e_05_max_seq_length_484_fp16_fp16_opt_level_O1_gradient_accumulation_steps_8_num_train_epochs_2_stride_384/eval_metrics.json
+  ? bert_generic_bert-ee-en-train_do_train_do_eval_learning_rate_5e_05_max_seq_length_484_fp16_fp16_opt_level_O1_gradient_accumulation_steps_8_num_train_epochs_2_stride_384_evaluation
+  : cmd: mcqa_utils -d data/EntranceExams_lang_splits/english -n data/results/bert/generic/bert-ee-en-train/do_train_do_eval_learning_rate_5e_05_max_seq_length_484_fp16_fp16_opt_level_O1_gradient_accumulation_steps_8_num_train_epochs_2_stride_384/eval_nbest_predictions.json
+      --split dev --task generic -ft --metrics C_at_1 avg --output data/metrics/bert/generic/bert-ee-en-train/do_train_do_eval_learning_rate_5e_05_max_seq_length_484_fp16_fp16_opt_level_O1_gradient_accumulation_steps_8_num_train_epochs_2_stride_384/evaluation.json
+    deps:
+    - data/EntranceExams_lang_splits/english/dev.json
+    - data/results/bert/generic/bert-ee-en-train/do_train_do_eval_learning_rate_5e_05_max_seq_length_484_fp16_fp16_opt_level_O1_gradient_accumulation_steps_8_num_train_epochs_2_stride_384/eval_nbest_predictions.json
+    metrics:
+    - data/metrics/bert/generic/bert-ee-en-train/do_train_do_eval_learning_rate_5e_05_max_seq_length_484_fp16_fp16_opt_level_O1_gradient_accumulation_steps_8_num_train_epochs_2_stride_384/evaluation.json
